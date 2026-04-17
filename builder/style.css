@@ -253,3 +253,78 @@ iframe {
   font-weight: 600;
   backdrop-filter: blur(10px);
 }
+
+/* ── Mobile Responsive Logic ── */
+.mobile-toggle {
+  display: none;
+  background: #111118;
+  padding: 12px;
+  border-bottom: 1px solid #2a2a36;
+  width: 100%;
+}
+
+.mobile-toggle button {
+  flex: 1;
+  padding: 10px;
+  background: #1a1a24;
+  border: 1px solid #2a2a36;
+  color: #8a8a9e;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.mobile-toggle button.active {
+  background: #2a2a36;
+  color: #fff;
+  border-color: #3b3b4a;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    gap: 12px;
+    top: 0;
+    position: sticky;
+    z-index: 100;
+  }
+
+  .panel {
+    width: 100% !important;
+    height: auto;
+    border-right: none;
+    display: block;
+  }
+
+  .preview-area {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  .preview-container {
+    padding: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 360px;
+    height: 700px;
+  }
+
+  /* Responsive Switching */
+  body.show-preview .panel {
+    display: none;
+  }
+
+  body:not(.show-preview) .preview-area {
+    display: none;
+  }
+}
