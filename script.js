@@ -8,7 +8,23 @@
 (function () {
   "use strict";
 
-  const C = window.CARD_CONFIG;
+  // Allow overwriting config via URL parameter "data"
+  // e.g. ?data=eyJuYW1lIjp7ImZpcnN0IjoiSm9obiJ9fQ==
+  const urlParams = new URLSearchParams(window.location.search);
+  const dataParam = urlParams.get("data");
+  if (dataParam) {
+    try {
+      // Decode base64 to string, then parse JSON
+      const decodedStr = atob(dataParam);
+      const urlConfig = JSON.parse(decodedStr);
+      // Merge urlConfig deeply or shallowly with window.CARD_CONFIG
+      window.CARD_CONFIG = Object.assign(window.CARD_CONFIG || {}, urlConfig);
+    } catch (e) {
+      console.error("Invalid data URL parameter. Reverting to default config.");
+    }
+  }
+
+  const C = typeof CARD_CONFIG !== 'undefined' ? CARD_CONFIG : null;
   if (!C) {
     console.error("config.js not loaded — make sure it's included before script.js");
     return;
@@ -43,13 +59,6 @@
     // Apply custom accent if provided
     if (C.accentColor) {
       document.documentElement.style.setProperty("--accent", C.accentColor);
-    }
-
-    // Theme badge
-    const badge = document.getElementById("theme-badge");
-    if (badge) {
-      const themeNames = { white: "Studio White", midnight: "Midnight", glass: "Glass", neon: "Neon" };
-      badge.textContent = `theme: ${themeNames[theme] || theme}`;
     }
 
     // Page title
