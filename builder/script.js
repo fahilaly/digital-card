@@ -118,6 +118,12 @@ document.getElementById('toggle-preview').addEventListener('click', () => {
     document.getElementById('toggle-preview').classList.add('active');
 });
 
+document.getElementById('mobile-edit-fab').addEventListener('click', () => {
+    document.body.classList.remove('show-preview');
+    document.getElementById('toggle-editor').classList.add('active');
+    document.getElementById('toggle-preview').classList.remove('active');
+});
+
 // Update the iframe with a live version
 function updatePreview() {
     if (!templateCache.html) return;
