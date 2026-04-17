@@ -5,8 +5,8 @@ let templateCache = {
 };
 
 let links = [
-    { type: "linkedin", label: "in/falhilaly", url: "https://www.linkedin.com/in/falhilaly/" },
-    { type: "email", label: "Fahilaly@gmail.com", url: "mailto:Fahilaly@gmail.com" }
+    { type: "linkedin", label: "in/johndoe", url: "https://www.linkedin.com/in/johndoe/" },
+    { type: "email", label: "hello@johndoe.com", url: "mailto:hello@johndoe.com" }
 ];
 
 const availableTypes = ['linkedin', 'github', 'twitter', 'instagram', 'youtube', 'phone', 'email', 'globe', 'whatsapp', 'telegram', 'tiktok', 'custom'];
@@ -106,6 +106,12 @@ function updatePreview() {
     
     let configObj = generateConfig();
     
+    // -- Live Link Generator --
+    const encoded = btoa(JSON.stringify(configObj));
+    const liveLink = document.getElementById('live-link-output');
+    // Using current path as base, but it depends on deployment so we specify fahilaly GitHub path
+    liveLink.value = `https://fahilaly.github.io/digital-card/?data=${encoded}`;
+
     // Strip external CSS/JS links from original HTML and inject them inline for the srcdoc
     let modifiedHtml = templateCache.html
         .replace('<link rel="stylesheet" href="style.css">', `<style>${templateCache.css}</style>`)
@@ -119,6 +125,18 @@ function updatePreview() {
 // Handle real-time typing
 ['in-first', 'in-last', 'in-role', 'in-tagline', 'in-monogram', 'in-theme'].forEach(id => {
     document.getElementById(id).addEventListener('input', updatePreview);
+});
+
+// Copy Live Link
+document.getElementById('btn-copy-link').addEventListener('click', () => {
+    const linkInput = document.getElementById('live-link-output');
+    linkInput.select();
+    document.execCommand('copy');
+    
+    const btn = document.getElementById('btn-copy-link');
+    const oldText = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = oldText; }, 2000);
 });
 
 // ZIP Generation
