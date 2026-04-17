@@ -9,13 +9,9 @@
     <!-- JSZip for exporting folder -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-
-    <div class="mobile-toggle">
-        <button id="toggle-editor" class="active">Editor</button>
-        <button id="toggle-preview">Preview</button>
-    </div>
+<body class="show-editor">
 
     <!-- Sidebar Editor -->
     <div class="panel" id="sidebar-panel">
@@ -84,6 +80,17 @@
         <div class="preview-container">
             <iframe id="preview-frame" src="../index.html"></iframe>
         </div>
+    </div>
+
+    <div class="mobile-nav-bar">
+        <button id="toggle-editor" class="nav-item active">
+            <i data-lucide="settings"></i>
+            <span>Editor</span>
+        </button>
+        <button id="toggle-preview" class="nav-item">
+            <i data-lucide="eye"></i>
+            <span>Preview</span>
+        </button>
     </div>
 
     <script src="script.js"></script>
