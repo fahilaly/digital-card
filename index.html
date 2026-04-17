@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Digital Business Card</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="config.js"></script>
+</head>
+<body>
+
+    <!-- ─── Ambient Background Blobs (theme-driven) ─── -->
+    <div class="ambient">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="desk">
+        <div class="card-scene">
+            <div class="card" id="card">
+
+                <!-- ══════ FRONT ══════ -->
+                <div class="card-face card-front" id="card-front">
+                    <div class="card-grain"></div>
+                    <div class="card-edge-light"></div>
+                    <div class="card-inner portrait-layout">
+                        <!-- Photo (optional, injected by JS) -->
+                        <div id="photo-area"></div>
+                        <!-- Brand -->
+                        <div class="brand" id="brand-area">
+                            <h1 class="name" id="card-name"></h1>
+                            <p class="role" id="card-role"></p>
+                            <p class="tagline" id="card-tagline"></p>
+                        </div>
+                        <!-- Contact Links (injected by JS) -->
+                        <div class="contact-links" id="contact-links"></div>
+                    </div>
+                </div>
+
+                <!-- ══════ BACK ══════ -->
+                <div class="card-face card-back" id="card-back">
+                    <div class="card-grain"></div>
+                    <div class="card-edge-light"></div>
+                    <div class="card-inner portrait-layout">
+                        <div class="back-top">
+                            <div class="monogram" id="card-monogram"></div>
+                            <h2 class="back-title" id="back-title"></h2>
+                            <p class="back-subtitle" id="back-subtitle"></p>
+                        </div>
+
+                        <div class="qr-container">
+                            <img id="qr-code" class="qr-code" alt="QR Code">
+                        </div>
+
+                        <div class="action-buttons" id="action-buttons"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <p class="flip-hint" id="flip-hint"></p>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Theme badge -->
+    <div class="theme-badge" id="theme-badge"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
