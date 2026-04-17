@@ -11,7 +11,7 @@
  * 4. Push to GitHub Pages to go live!
  */
 
-const CARD_CONFIG = {
+var CARD_CONFIG = {
 
   // ── Personal Info ──────────────────────────────────────────
   name: {
