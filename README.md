@@ -1,107 +1,99 @@
-# 💳 Digital Business Card — V2 Template
+# Digital Business Card Template
 
-A **premium, fully customizable** digital business card you can deploy for free on GitHub Pages. No frameworks, no build tools, no subscriptions — just edit one file and go live.
+A fully customizable digital business card designed for deployment on GitHub Pages. Built with HTML, CSS, and standard JavaScript with no build steps or dependencies.
 
-![Themes: White, Midnight, Glass, Neon](https://img.shields.io/badge/themes-4%20built--in-blueviolet)
-![Mobile Ready](https://img.shields.io/badge/mobile-responsive-green)
-![NFC Optimized](https://img.shields.io/badge/NFC-ready-blue)
+## Features
 
----
-
-## ⚡ Quick Start
-
-1. **Fork** this repo (or download the `/v2/` folder).
-2. **Edit** `config.js` — change your name, links, theme, and you're done.
-3. **Deploy** to GitHub Pages (Settings → Pages → Deploy from `main`).
-4. **Share** via NFC tag, QR code, or a simple link.
+- Config-driven design: Edit one file to customize your card
+- 4 Built-in Themes: Studio White, Midnight, Glass, and Neon
+- Mobile and NFC ready
 
 ---
 
-## 🎨 4 Built-in Themes
+## Quick Start
 
-Change the `theme` value in `config.js` to switch instantly:
-
-| Theme        | Value        | Vibe                                |
-|:-------------|:-------------|:------------------------------------|
-| Studio White | `"white"`    | Clean, matte, professional          |
-| Midnight     | `"midnight"` | Dark premium with purple accents    |
-| Glass        | `"glass"`    | Frosted glassmorphism on deep blue  |
-| Neon         | `"neon"`     | Cyberpunk green-on-black glow       |
+1. Fork this repository or download the source files.
+2. Edit `config.js` to add your personal information, links, and preferred theme.
+3. Deploy the repository to GitHub Pages (Settings > Pages > Deploy from main branch).
+4. Share via URL, QR code, or NFC tag.
 
 ---
 
-## 📝 How to Customize
+## Themes
 
-Open `config.js` in any text editor. Every option is documented inline:
+Modify the `theme` property in `config.js` to change the appearance:
+
+| Theme        | Value        | Description                             |
+|:-------------|:-------------|:----------------------------------------|
+| Studio White | `"white"`    | Clean, minimalistic                     |
+| Midnight     | `"midnight"` | Dark theme with high contrast           |
+| Glass        | `"glass"`    | Frosted glassmorphism effect            |
+| Neon         | `"neon"`     | Dark theme with green accents           |
+
+---
+
+## Configuration
+
+Open `config.js` and modify the `CARD_CONFIG` object. Options are documented inline.
 
 ```js
-const CARD_CONFIG = {
-  name: { first: "YOUR", last: "NAME" },
+var CARD_CONFIG = {
+  name: { first: "First", last: "Last" },
   role: "Your Title",
   theme: "white",    // "white" | "midnight" | "glass" | "neon"
 
   links: [
     { type: "linkedin", label: "in/yourname", url: "https://linkedin.com/in/yourname" },
-    { type: "phone",    label: "+1 234 567 890", url: "tel:+1234567890" },
     { type: "email",    label: "you@email.com",  url: "mailto:you@email.com" },
-    // Add more: github, twitter, instagram, whatsapp, telegram, tiktok, youtube, globe
   ],
 };
 ```
 
 ### Supported Link Types
-`linkedin` · `github` · `twitter` · `instagram` · `youtube` · `phone` · `email` · `globe` · `whatsapp` · `telegram` · `tiktok` · `custom`
+`linkedin` | `github` | `twitter` | `instagram` | `youtube` | `phone` | `email` | `globe` | `whatsapp` | `telegram` | `tiktok` | `custom`
 
-Each type auto-assigns an icon and color. For `custom`, you can provide your own SVG via the `iconSvg` property.
-
----
-
-## 📱 NFC Setup
-
-1. Get an **NFC tag** (NTAG215 recommended).
-2. Install **NFC Tools** on your phone.
-3. Write a **URL record** with your GitHub Pages link (e.g. `https://yourusername.github.io/business-card/v2/`).
-4. Stick the tag on your phone case or wallet. One tap = instant card share.
+Each type assigns a specific icon. For `custom`, provide an SVG string using the `iconSvg` property.
 
 ---
 
-## 📂 File Structure
+## NFC Setup
 
-```
-v2/
-├── config.js    ← ✏️ EDIT THIS (your info, links, theme)
-├── index.html   ← Template structure (don't edit)
-├── style.css    ← Design system (don't edit)
-├── script.js    ← Engine (don't edit)
-└── README.md    ← You're reading this
-```
+1. Obtain an NFC tag (NTAG215 recommended).
+2. Install an NFC writing application.
+3. Write a URL record targeting your deployed GitHub Pages link.
 
 ---
 
-## 🚀 Deployment
+## File Structure
 
-### GitHub Pages (Free)
-1. Push the repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Set source to **Deploy from branch** → `main` → `/ (root)`.
-4. Your card is live at `https://yourusername.github.io/repo-name/v2/`.
-
----
-
-## 🛠 Tech Stack
-
-- **HTML5** — Semantic, minimal skeleton
-- **CSS3** — Custom properties, 3D transforms, glassmorphism, ambient animations
-- **Vanilla JS** — Zero dependencies, config-driven rendering
-- **QR Server API** — Dynamic QR code generation
-- **Google Fonts** — Outfit + JetBrains Mono
+- `config.js`: Configuration file containing user data.
+- `index.html`: Base template layout.
+- `style.css`: Design system and themes.
+- `script.js`: Core logic for rendering and interactions.
+- `README.md`: Documentation.
 
 ---
 
-## 📄 License
+## Deployment
 
-MIT — Use it however you want. Credit appreciated but not required.
+1. Commit and push the files to a GitHub repository.
+2. Navigate to Settings > Pages.
+3. Under Source, select 'Deploy from a branch'.
+4. Select the `main` branch and `/ (root)` folder.
+5. Save to receive your live URL.
 
 ---
 
-**Built with ☕ and ambition.**
+## Tech Stack
+
+- HTML5
+- CSS3 (Custom properties, 3D transforms)
+- Vanilla JavaScript
+- QR Server API
+- Google Fonts (Outfit, JetBrains Mono)
+
+---
+
+## License
+
+MIT License.
