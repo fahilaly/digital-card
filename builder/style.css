@@ -178,15 +178,25 @@ input:focus, select:focus {
   border-color: #2a2a36;
 }
 
+#btn-shorten-link,
 #btn-copy-link {
-  background: #0A66C2;
+  background: #2a2a36;
   color: #fff;
   border: none;
-  padding: 0 16px;
+  padding: 0 12px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   transition: 0.2s;
+  font-size: 0.85rem;
+}
+
+#btn-copy-link {
+  background: #0A66C2;
+}
+
+#btn-shorten-link:hover {
+  background: #3b3b4a;
 }
 
 #btn-copy-link:hover {
