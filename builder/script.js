@@ -139,6 +139,43 @@ document.getElementById('btn-copy-link').addEventListener('click', () => {
     setTimeout(() => { btn.textContent = oldText; }, 2000);
 });
 
+// Shorten Live Link
+document.getElementById('btn-shorten-link').addEventListener('click', () => {
+    const linkInput = document.getElementById('live-link-output');
+    const longUrl = linkInput.value;
+    
+    // Don't shorten if already shortened
+    if (longUrl.includes('is.gd/')) return;
+    
+    const btn = document.getElementById('btn-shorten-link');
+    btn.textContent = "...";
+    btn.disabled = true;
+
+    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    window[callbackName] = function(data) {
+        delete window[callbackName];
+        if (script.parentNode) script.parentNode.removeChild(script);
+        
+        btn.textContent = "Shorten";
+        btn.disabled = false;
+        
+        if (data && data.shorturl) {
+            linkInput.value = data.shorturl;
+        } else {
+            console.error("Shortening failed:", data);
+        }
+    };
+
+    const script = document.createElement('script');
+    script.src = `https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}&callback=${callbackName}`;
+    script.onerror = () => {
+        btn.textContent = "Shorten";
+        btn.disabled = false;
+        console.error("Shortening request failed");
+    };
+    document.body.appendChild(script);
+});
+
 // ZIP Generation
 document.getElementById('btn-export').addEventListener('click', async () => {
     const zip = new JSZip();
