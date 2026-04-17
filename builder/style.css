@@ -332,7 +332,23 @@ iframe {
     width: 100%;
     max-width: 340px;
     height: 680px;
+    margin-bottom: 20px;
   }
+
+  /* Compact controls for mobile */
+  .control-group {
+    margin-bottom: 20px;
+  }
+
+  input[type="text"], 
+  input[type="url"],
+  select {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+    padding: 14px;
+  }
+
+  h1 { font-size: 1.5rem; }
+  p { font-size: 0.9rem; }
 
   /* Responsive Switching */
   body.show-preview .panel {
@@ -341,5 +357,36 @@ iframe {
 
   body:not(.show-preview) .preview-area {
     display: none;
+  }
+}
+
+/* ── Floating Action Button (Mobile) ── */
+.fab {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  width: 56px;
+  height: 56px;
+  background: #0A66C2;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  z-index: 1001;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.fab:active {
+  transform: scale(0.9);
+  background: #0855a1;
+}
+
+@media (max-width: 768px) {
+  body.show-preview .fab {
+    display: flex;
   }
 }
