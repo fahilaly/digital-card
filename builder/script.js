@@ -100,6 +100,24 @@ function getConfigFileString(configObj) {
     return `var CARD_CONFIG = ${JSON.stringify(configObj, null, 2)};`;
 }
 
+// Initialize Lucide icons
+lucide.createIcons();
+
+let currentConfig = { ...CARD_CONFIG };
+
+// Mobile View Toggling
+document.getElementById('toggle-editor').addEventListener('click', () => {
+    document.body.classList.remove('show-preview');
+    document.getElementById('toggle-editor').classList.add('active');
+    document.getElementById('toggle-preview').classList.remove('active');
+});
+
+document.getElementById('toggle-preview').addEventListener('click', () => {
+    document.body.classList.add('show-preview');
+    document.getElementById('toggle-editor').classList.remove('active');
+    document.getElementById('toggle-preview').classList.add('active');
+});
+
 // Update the iframe with a live version
 function updatePreview() {
     if (!templateCache.html) return;
@@ -174,19 +192,6 @@ document.getElementById('btn-shorten-link').addEventListener('click', () => {
         console.error("Shortening request failed");
     };
     document.body.appendChild(script);
-});
-
-// Mobile View Toggling
-document.getElementById('toggle-editor').addEventListener('click', () => {
-    document.body.classList.remove('show-preview');
-    document.getElementById('toggle-editor').classList.add('active');
-    document.getElementById('toggle-preview').classList.remove('active');
-});
-
-document.getElementById('toggle-preview').addEventListener('click', () => {
-    document.body.classList.add('show-preview');
-    document.getElementById('toggle-editor').classList.remove('active');
-    document.getElementById('toggle-preview').classList.add('active');
 });
 
 // ZIP Generation
