@@ -176,6 +176,19 @@ document.getElementById('btn-shorten-link').addEventListener('click', () => {
     document.body.appendChild(script);
 });
 
+// Mobile View Toggling
+document.getElementById('toggle-editor').addEventListener('click', () => {
+    document.body.classList.remove('show-preview');
+    document.getElementById('toggle-editor').classList.add('active');
+    document.getElementById('toggle-preview').classList.remove('active');
+});
+
+document.getElementById('toggle-preview').addEventListener('click', () => {
+    document.body.classList.add('show-preview');
+    document.getElementById('toggle-editor').classList.remove('active');
+    document.getElementById('toggle-preview').classList.add('active');
+});
+
 // ZIP Generation
 document.getElementById('btn-export').addEventListener('click', async () => {
     const zip = new JSZip();
