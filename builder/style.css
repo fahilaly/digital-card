@@ -160,6 +160,48 @@ input:focus, select:focus {
   transform: translateY(-2px);
 }
 
+.live-link-box p {
+  font-size: 0.85rem;
+  color: #bbbbc8;
+  margin-bottom: 8px;
+}
+
+.link-split {
+  display: flex;
+  gap: 8px;
+}
+
+.link-split input {
+  margin-bottom: 0;
+  flex: 1;
+  background: #060609;
+  border-color: #2a2a36;
+}
+
+#btn-copy-link {
+  background: #0A66C2;
+  color: #fff;
+  border: none;
+  padding: 0 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+#btn-copy-link:hover {
+  background: #0855a1;
+}
+
+.divider {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #5d5d71;
+  margin: 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* ── Preview ── */
 .preview-area {
   flex: 1;
