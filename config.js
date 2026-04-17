@@ -15,18 +15,18 @@ var CARD_CONFIG = {
 
   // ── Personal Info ──────────────────────────────────────────
   name: {
-    first: "FAISAL",
-    last:  "ALHELALI",
+    first: "JOHN",
+    last:  "DOE",
   },
 
-  role:    "Mechatronics Engineering Student",
-  tagline: "Building the bridge between hardware and software.",
+  role:    "Software Developer",
+  tagline: "Building beautiful and robust digital solutions.",
 
   // Profile photo (optional). Use a URL or leave empty "" to hide.
   photo: "",
 
-  // Monogram shown on the back of the card (e.g. "F.A." for Faisal Alhelali)
-  monogram: "F.A.",
+  // Monogram shown on the back of the card (e.g. "J.D." for John Doe)
+  monogram: "J.D.",
 
 
   // ── Contact Links ──────────────────────────────────────────
@@ -39,22 +39,22 @@ var CARD_CONFIG = {
   links: [
     {
       type:  "linkedin",
-      label: "in/falhilaly",
-      url:   "https://www.linkedin.com/in/falhilaly/",
+      label: "in/johndoe",
+      url:   "https://www.linkedin.com/in/johndoe/",
     },
     {
-      type:  "phone",
-      label: "+966 533 301 766",
-      url:   "tel:+966533301766",
+      type:  "github",
+      label: "github.com/johndoe",
+      url:   "https://github.com/johndoe",
     },
     {
       type:  "email",
-      label: "Fahilaly@gmail.com",
-      url:   "mailto:Fahilaly@gmail.com",
+      label: "hello@johndoe.com",
+      url:   "mailto:hello@johndoe.com",
     },
     // Add more links here, e.g.:
-    // { type: "github",    label: "github.com/fahilaly", url: "https://github.com/fahilaly" },
-    // { type: "globe",     label: "myportfolio.com",     url: "https://myportfolio.com"      },
+    // { type: "phone",     label: "+1 234 567 890",      url: "tel:+1234567890"        },
+    // { type: "globe",     label: "johndoe.com",         url: "https://johndoe.com"    },
   ],
 
 
